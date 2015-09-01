@@ -1,0 +1,35 @@
+{
+    "name": "ngakost/titanwall",
+    "license": "MIT",
+	"type": "library",
+	"keywords": ["laravel", "auth", "laravel auth", "membership"],
+	"homepage": "https://github.com/odenktools/titanwall",	
+    "authors": [
+        {
+            "name": "Odenktools",
+            "email": "odenktools86@gmail.com",
+			"homepage": "http://odenktools.com",
+            "role": "Developer"	
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+		"illuminate/http": "5.1.*",
+        "illuminate/mail": "5.1.*",
+        "illuminate/routing": "5.1.*",
+        "illuminate/support": "5.1.*",
+        "illuminate/validation": "5.1.*",
+        "illuminate/view": "5.1.*",
+		"illuminate/html": "5.*",
+		"nesbot/carbon": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ngakost\\TitanWall\\": "src/"
+        }
+    },
+    "config": {
+        "preferred-install": "dist"
+    },	
+    "minimum-stability": "stable"
+}
