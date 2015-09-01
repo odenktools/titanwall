@@ -2,7 +2,7 @@
     "name": "ngakost/titanwall",
     "license": "MIT",
 	"type": "library",
-	"keywords": ["laravel", "auth", "laravel auth", "membership"],
+	"keywords": ["titanwall", "laravel", "auth", "laravel auth", "membership", "roles", "permissions"],
 	"homepage": "https://github.com/odenktools/titanwall",	
     "authors": [
         {
@@ -21,7 +21,7 @@
         "illuminate/validation": "5.1.*",
         "illuminate/view": "5.1.*",
 		"illuminate/html": "5.*",
-		"nesbot/carbon": "~1.0"
+		"nesbot/carbon": "~1.18"
     },
     "autoload": {
         "psr-4": {
