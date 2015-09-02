@@ -8,19 +8,14 @@
         {
             "name": "Odenktools",
             "email": "odenktools86@gmail.com",
-			"homepage": "http://odenktools.com",
+			"homepage": "http://ngakost.net/code/php/titanwall",
             "role": "Developer"	
         }
     ],
     "require": {
         "php": ">=5.5.9",
-		"illuminate/http": "5.1.*",
-        "illuminate/mail": "5.1.*",
-        "illuminate/routing": "5.1.*",
         "illuminate/support": "5.1.*",
         "illuminate/validation": "5.1.*",
-        "illuminate/view": "5.1.*",
-		"illuminate/html": "5.*",
 		"nesbot/carbon": "~1.18"
     },
     "autoload": {
