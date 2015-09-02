@@ -75,13 +75,4 @@ class TitanWallServiceProvider extends ServiceProvider
 			__DIR__.'/../config/titanwall.php', 'titanwall'
 		);
     }
-	
-    /**
-     * Get the services provided by the provider.
-     * @return array
-     */
-    public function provides()
-    {
-        return array();
-    }
 }
