@@ -2,6 +2,9 @@
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 
+/**
+ * @todo
+ */
 class Role extends TitanWallModel
 {
 	//use SoftDeletes;

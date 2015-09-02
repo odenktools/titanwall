@@ -1,7 +1,7 @@
 <?php namespace Ngakost\TitanWall\Models;
 
 /**
- * 
+ * @todo
  */
 class FieldType extends TitanWallModel
 {

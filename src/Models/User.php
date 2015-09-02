@@ -32,7 +32,7 @@ class User extends TitanWallModel implements AuthenticatableContract, CanResetPa
         'username' => 'required|between:3,64',
         'email' => 'required|between:3,64|email|unique:users',
         'password' => 'required:create|between:2,32|confirmed',
-        //'password_confirmation' => 'required_with:password|between:2,32'
+        'password_confirmation' => 'required_with:password|between:2,32'
     ];
 
     public function __construct(array $attributes = array())
@@ -170,9 +170,7 @@ class User extends TitanWallModel implements AuthenticatableContract, CanResetPa
             }
 
             $expire = date("Y-m-d H:i:s", strtotime($now . +$diff . " day"));
-
-            //echo $expire;
-
+			
         } else {
 
             $expire = "0000-00-00 00:00:00";
