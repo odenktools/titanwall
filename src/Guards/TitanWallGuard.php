@@ -7,7 +7,6 @@ use Ngakost\TitanWall\Helpers\TitanWallHelper;
 /**
  * @todo
  *
- * D:\htdocs\laravel_pack\workbench
  */
 class TitanWallGuard extends Guard implements GuardContract
 {
@@ -83,10 +82,8 @@ class TitanWallGuard extends Guard implements GuardContract
                     }
 
                     if ($user->isExpired($user->getAuthIdentifier())) {
-                        //echo 'expired';
                         return TitanWallHelper::INVALID_CREDENTIALS;
                     } else {
-                        //echo 'tidak';
                         return TitanWallHelper::SUCCESS;
                     }
 
@@ -94,7 +91,10 @@ class TitanWallGuard extends Guard implements GuardContract
 
                 return TitanWallHelper::SUCCESS;
 
-            }
+            } else {
+				
+				throw new \RuntimeException('User not has any roles, please setup user roles.');
+			}
 
         }
 

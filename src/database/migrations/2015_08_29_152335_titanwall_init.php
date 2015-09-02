@@ -51,7 +51,8 @@ class TitanWallInit extends Migration
 			$table->string('user_mail', 128)->unique();
 			$table->string('email', 128)->unique();
 			$table->string('password', 128);
-			$table->string('activation_code', 40)->nullable();
+			$table->string('salt', 50);
+			$table->string('activation_code', 50)->nullable();
 			$table->integer('is_builtin')->default(0);
 			$table->integer('is_active')->default(0);
 			$table->integer('verified')->default(0);
@@ -59,8 +60,8 @@ class TitanWallInit extends Migration
 			$table->string('time_zone', 64)->nullable();
 			$table->timestamp('last_login')->nullable();
 			$table->rememberToken();
-			$table->string('forgotten_password_code', 40)->nullable();
-			$table->integer('forgotten_password_time')->nullable();
+			$table->string('forgotten_password_code', 50)->nullable();
+			$table->dateTime('forgotten_password_time')->nullable();
 			$table->timestamps();
 			
 		});
@@ -127,7 +128,48 @@ class TitanWallInit extends Migration
 			$table->foreign('roles_id')->references('id_role')->on($prefix . 'role');
 			
 		});
+
 		
+		Schema::create($prefix . 'user_fields', function($table) use ($prefix)
+		{
+			$table->engine = 'InnoDB';
+			
+			$table->increments('id_user_field');
+			$table->integer('field_type_id')->unsigned();
+			$table->integer('group_field_id')->unsigned();
+			$table->string('field_name', 50)->index();
+			$table->text('field_comment', 50)->nullable();
+			$table->string('possible_values', 50);
+			$table->string('text_select_value', 50);
+			$table->tinyInteger('is_mandatory')->default(0);
+			$table->tinyInteger('field_order')->default(0);
+			$table->tinyInteger('sort_values')->default(0);
+			$table->tinyInteger('is_active')->default(0);
+			$table->tinyInteger('show_in_signup')->default(0);
+			$table->tinyInteger('admin_use_only')->default(0);
+			$table->tinyInteger('vertical_layout')->default(0);
+			$table->tinyInteger('is_encrypted')->default(0);
+			$table->timestamps();
+			$table->softDeletes();
+			
+			$table->foreign('field_type_id')->references('id_field_type')->on($prefix . 'field_types');
+			$table->foreign('group_field_id')->references('id_group_field')->on($prefix . 'user_group_fields');
+			
+		});
+		
+		Schema::create($prefix . 'user_profile_fields', function($table) use ($prefix)
+		{
+			$table->engine = 'InnoDB';
+			
+			$table->increments('id_profile');
+			$table->integer('user_id')->unsigned();
+			$table->integer('userfield_id')->unsigned();
+			$table->text('field_value')->nullable();
+			
+			$table->foreign('user_id')->references('id_user')->on($prefix . 'users');
+			$table->foreign('userfield_id')->references('id_user_field')->on($prefix . 'user_fields');
+			
+		});		
 
 		
 		
@@ -140,6 +182,9 @@ class TitanWallInit extends Migration
      */
 	public function down()
 	{
+		
+		Schema::drop($this->prefix . 'user_profile_fields');
+		Schema::drop($this->prefix . 'user_fields');
 		Schema::drop($this->prefix . 'user_roles');
 		Schema::drop($this->prefix . 'users');
 		Schema::drop($this->prefix . 'role');
