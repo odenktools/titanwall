@@ -31,7 +31,7 @@ class TitanWallServiceProvider extends ServiceProvider
 
             // Return a new Guard instance and pass our
             // UserProvider class into its constructor.
-            return new \Ngakost\TitanWall\Providers\TitanWallGuard($provider, $app['session.store']);
+            return new \Ngakost\TitanWall\Guards\TitanWallGuard($provider, $app['session.store']);
         });
     }
 

@@ -1,8 +1,8 @@
-<?php namespace Ngakost\TitanWall\Providers;
+<?php namespace Ngakost\TitanWall\Guards;
 
 use Illuminate\Auth\Guard;
 use Illuminate\Contracts\Auth\Guard as GuardContract;
-use Ngakost\TitanWall\Providers\TitanWallHelper;
+use Ngakost\TitanWall\Helpers\TitanWallHelper;
 
 /**
  * @todo

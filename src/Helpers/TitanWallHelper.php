@@ -1,4 +1,4 @@
-<?php namespace Ngakost\TitanWall\Providers;
+<?php namespace Ngakost\TitanWall\Helpers;
 
 /**
  * @todo
