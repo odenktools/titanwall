@@ -30,3 +30,6 @@ Or using tag
 #Migration
 	php artisan vendor:publish --provider="Ngakost\TitanWall\Providers\TitanWallServiceProvider" --tag="migrations"
 	php artisan migrate
+
+#Note
+This is aplha release, please do not install/usage this package for your development
