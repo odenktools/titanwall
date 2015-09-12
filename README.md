@@ -40,6 +40,6 @@ Or using tag
 This is aplha release, please do not install/usage this package for your development
 
 #References
-	[https://github.com/Toddish/Verify](https://github.com/Toddish/Verify).
-	[https://github.com/parsidev/entrust](https://github.com/parsidev/entrust).
+[Verify](https://github.com/Toddish/Verify)
+[Entrust](https://github.com/parsidev/entrust)
 	
