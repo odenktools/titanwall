@@ -37,13 +37,9 @@ Or using tag
 	php artisan migrate
 
 #Note
-<<<<<<< HEAD
 This is aplha release, please do not install/usage this package for your development
 
 #References
 	[https://github.com/Toddish/Verify](https://github.com/Toddish/Verify).
 	[https://github.com/parsidev/entrust](https://github.com/parsidev/entrust).
 	
-=======
-This is aplha release, please do not install/usage this package for your development
->>>>>>> 4b41ebdf803004352417495c7016c2d1a63c0860
