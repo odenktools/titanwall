@@ -3,6 +3,12 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * @todo
+ *
+ * @license MIT
+ *
+ */
 class TitanWallInit extends Migration
 {
 	public function __construct()

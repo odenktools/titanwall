@@ -6,7 +6,7 @@ use Ngakost\TitanWall\Helpers\TitanWallHelper;
 
 /**
  * @todo
- *
+ * @license MIT
  */
 class TitanWallGuard extends Guard implements GuardContract
 {

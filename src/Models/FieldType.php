@@ -2,6 +2,8 @@
 
 /**
  * @todo
+ *
+ * @license MIT
  */
 class FieldType extends TitanWallModel
 {

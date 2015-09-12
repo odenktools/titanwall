@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Model as EloquentModel;
 
 /**
  * Odenktools Core Model
+ * @license MIT
  */
 class TitanWallModel extends EloquentModel
 {

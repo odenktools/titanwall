@@ -1,13 +1,17 @@
 <?php namespace Ngakost\TitanWall\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Ngakost\TitanWall\Traits\RoleTrait;
 
 /**
  * @todo
+ * @license MIT
  */
 class Role extends TitanWallModel
 {
 	//use SoftDeletes;
+
+    use RoleTrait, SoftDeletes;
 	
     /**
      * The database table used by the model.
@@ -54,11 +58,5 @@ class Role extends TitanWallModel
     {
         parent::__construct($attributes);
     }
-
-	public function users()
-	{
-		return $this->belongsToMany('\Ngakost\TitanWall\Models\User', 'odk_user_roles', 'user_id', 'roles_id')
-			->withTimestamps();
-	}
 
 }

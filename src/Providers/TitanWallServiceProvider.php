@@ -4,9 +4,17 @@ use Illuminate\Support\ServiceProvider;
 
 /**
  * @todo
+ * @license MIT
  */
 class TitanWallServiceProvider extends ServiceProvider
 {
+    /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = false;
+	
     /**
      * Bootstrap the application services.
      *
@@ -74,5 +82,21 @@ class TitanWallServiceProvider extends ServiceProvider
 		$this->mergeConfigFrom(
 			__DIR__.'/../config/titanwall.php', 'titanwall'
 		);
+		
+		$this->registerTitanwall();
+		
     }
+	
+    /**
+     * Register the application bindings.
+     *
+     * @return void
+     */
+    private function registerTitanwall()
+    {
+        $this->app->bind('titanwall', function ($app) {
+            return new TitanWall($app);
+        });
+    }
+	
 }

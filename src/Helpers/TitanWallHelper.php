@@ -2,6 +2,9 @@
 
 /**
  * @todo
+ *
+ * @license MIT
+ *
  */
 class TitanWallHelper
 {

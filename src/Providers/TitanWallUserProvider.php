@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\Authenticatable as UserContract;
 
 /**
  * @todo
+ * @license MIT
  */
 class TitanWallUserProvider extends EloquentUserProvider implements UserProvider
 {

@@ -2,13 +2,14 @@
 
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
-use Illuminate\Database\Eloquent\SoftDeletes;
+//use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use RuntimeException;
 
 /**
  * @todo
+ * @license MIT
  */
 class User extends TitanWallModel implements AuthenticatableContract, CanResetPasswordContract
 {
@@ -137,8 +138,6 @@ class User extends TitanWallModel implements AuthenticatableContract, CanResetPa
         parent::create($data);
 
         $lastid = \DB::getpdo()->lastinsertid();
-
-
     }
 
     /**
