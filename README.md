@@ -1,4 +1,5 @@
 # TitanWall
+===========
 Laravel 5.1 Authentification and membership system
 
 #Install
@@ -16,6 +17,10 @@ Save, then run it from your console
 After updating composer, add the service provider to the `providers` array in `config/app.php`
 
 	Ngakost\TitanWall\Providers\TitanWallServiceProvider::class,
+	
+Also add the aliases to the `aliases` array in `config/app.php`
+
+	'TitanWall' 		=> Ngakost\TitanWall\Facades\TitanWall::class,
 
 #Publish
 
@@ -30,3 +35,11 @@ Or using tag
 #Migration
 	php artisan vendor:publish --provider="Ngakost\TitanWall\Providers\TitanWallServiceProvider" --tag="migrations"
 	php artisan migrate
+
+#Note
+This is aplha release, please do not install/usage this package for your development
+
+#References
+	[https://github.com/Toddish/Verify](https://github.com/Toddish/Verify).
+	[https://github.com/parsidev/entrust](https://github.com/parsidev/entrust).
+	
