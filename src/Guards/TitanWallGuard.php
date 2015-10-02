@@ -92,7 +92,7 @@ class TitanWallGuard extends Guard implements GuardContract
                 return TitanWallHelper::SUCCESS;
 
             } else {
-				
+
 				throw new \RuntimeException('User not has any roles, please setup user roles.');
 			}
 

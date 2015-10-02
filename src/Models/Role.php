@@ -11,7 +11,7 @@ class Role extends TitanWallModel
 {
 	//use SoftDeletes;
 
-    use RoleTrait, SoftDeletes;
+    use RoleTrait;
 	
     /**
      * The database table used by the model.
@@ -19,8 +19,6 @@ class Role extends TitanWallModel
      * @var string
      */
     protected $table = 'role';
-	
-	protected $dates = ['deleted_at'];
 
 	protected $primaryKey = 'id_role';
 
