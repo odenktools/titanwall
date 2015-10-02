@@ -95,8 +95,6 @@ class TitanWallUserProvider extends EloquentUserProvider implements UserProvider
         $model = $this->createModel();
         $id = $model->getKeyName();
 
-        echo $id;
-
         //$data = $model->getRoleById($user->id_user);
 
         $data = $model->find($user->{$id})->roles->first();
