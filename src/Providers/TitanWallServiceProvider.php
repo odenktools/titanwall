@@ -1,6 +1,8 @@
 <?php namespace Ngakost\TitanWall\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Ngakost\TitanWall\Providers\TitanWallUserProvider;
+use Ngakost\TitanWall\Guards\TitanWallGuard;
 
 /**
  * @todo
@@ -35,11 +37,11 @@ class TitanWallServiceProvider extends ServiceProvider
             $hash 	= $app['hash'];
 
             // Instantiate our own UserProvider class.
-            $provider = new \Ngakost\TitanWall\Providers\TitanWallUserProvider($hash, $model);
+            $provider = new TitanWallUserProvider($hash, $model);
 
             // Return a new Guard instance and pass our
             // UserProvider class into its constructor.
-            return new \Ngakost\TitanWall\Guards\TitanWallGuard($provider, $app['session.store']);
+            return new TitanWallGuard($provider, $app['session.store']);
         });
     }
 
@@ -68,8 +70,13 @@ class TitanWallServiceProvider extends ServiceProvider
     private function publishMigrations()
     {
         $this->publishes([
-		__DIR__. '/../database/migrations' => base_path ('database/migrations'),
+		    __DIR__. '/../database/migrations' => base_path ('database/migrations'),
         ], 'migrations');
+
+        $this->publishes([
+            __DIR__.'/../database/seeds/' => base_path('database/seeds')
+        ], 'seeds');
+        
     }
 	
     /**
@@ -86,7 +93,12 @@ class TitanWallServiceProvider extends ServiceProvider
 		$this->registerTitanwall();
 		
     }
-	
+
+    public function provides()
+    {
+        return ['titanwall'];
+    }
+
     /**
      * Register the application bindings.
      *
