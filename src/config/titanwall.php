@@ -6,9 +6,11 @@ return [
 	
 	'cms_auth'		=> true,
 	
-	'identified_by' => ['username', 'email'],
+	'identified_by' 	=> ['username', 'email'],
 
-	'default_role' => 'trial',
+	'default_role' 		=> 'trial',
+	
+	'super_admin'		=> 'admin',
 	
 	// DB prefix for tables
 	'prefix' => 'odk_',

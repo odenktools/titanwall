@@ -80,6 +80,6 @@ class TitanWallSeeder extends Seeder
 			'updated_at' => date('Y-m-d H:i:s')
 		]);
 		
-		$this->command->info('User table seeded!');
+		$this->command->info('TitanWall tables are seeded!');
 	}
 }
