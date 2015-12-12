@@ -82,7 +82,7 @@ class TitanWallGuard extends Guard implements GuardContract
                     }
 
                     if ($user->isExpired($user->getAuthIdentifier())) {
-                        return TitanWallHelper::INVALID_CREDENTIALS;
+                        return TitanWallHelper::EXPIRED;
                     } else {
                         return TitanWallHelper::SUCCESS;
                     }

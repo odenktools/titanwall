@@ -40,6 +40,13 @@ class User extends TitanWallModel implements AuthenticatableContract, CanResetPa
     {
         parent::__construct($attributes);
     }
+	
+	public static function boot()
+	{
+        parent::boot();
+        //$config = array(1,2,3,4);
+        //$this->rules['city'] = 'integer|in:'.implode(',', $config);
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -133,12 +140,12 @@ class User extends TitanWallModel implements AuthenticatableContract, CanResetPa
      * @param  array $data
      * @return User
      */
-    public static function create(array $data = array())
-    {
-        parent::create($data);
-
-        $lastid = \DB::getpdo()->lastinsertid();
-    }
+//    public static function create(array $data = array())
+//    {
+//        parent::create($data);
+//
+//        $lastid = \DB::getpdo()->lastinsertid();
+//    }
 
     /**
      * [NEW FEATURE]

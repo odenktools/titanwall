@@ -132,6 +132,7 @@ class TitanWallInit extends Migration
 
 			$table->foreign('user_id')->references('id_user')->on($prefix . 'users');
 			$table->foreign('roles_id')->references('id_role')->on($prefix . 'role');
+			$table->timestamps();
 			
 		});
 

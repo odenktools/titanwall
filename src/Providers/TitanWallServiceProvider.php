@@ -1,5 +1,6 @@
 <?php namespace Ngakost\TitanWall\Providers;
 
+use Validator;
 use Illuminate\Support\ServiceProvider;
 use Ngakost\TitanWall\Providers\TitanWallUserProvider;
 use Ngakost\TitanWall\Guards\TitanWallGuard;
@@ -106,7 +107,7 @@ class TitanWallServiceProvider extends ServiceProvider
      */
     private function registerTitanwall()
     {
-        $this->app->bind('titanwall', function ($app) {
+        $this->app->bindShared('titanwall', function ($app) {
             return new TitanWall($app);
         });
     }

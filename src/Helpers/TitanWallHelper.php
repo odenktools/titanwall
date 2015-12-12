@@ -13,4 +13,6 @@ class TitanWallHelper
 	const DISABLED = 'titanwall.disabled';
 	const SUCCESS = 'titanwall.success';
 	const ACTIVATED = 'titanwall.activated';
+	const EXPIRED = 'titanwall.expired';
+	
 }
