@@ -2,7 +2,6 @@
 
 use Validator;
 use Illuminate\Support\ServiceProvider;
-use Ngakost\TitanWall\Guards\TitanWallGuard;
 
 /**
  * @todo
@@ -30,10 +29,8 @@ class TitanWallServiceProvider extends ServiceProvider
 		
 		$this->app['auth']->extend('titanwall', function ($app)
         {
-            // Get the model name from the auth config file
-            // file and instantiate a new Hasher and our
-            // PasswordUpgrader from the container.
             $model 	= $app->config['auth.model'];
+			
             $hash 	= $app['hash'];
 
             // Instantiate our own UserProvider class.
@@ -41,7 +38,7 @@ class TitanWallServiceProvider extends ServiceProvider
 
             // Return a new Guard instance and pass our
             // UserProvider class into its constructor.
-            return new TitanWallGuard($provider, $app['session.store']);
+            return new \Ngakost\TitanWall\Guards\TitanWallGuard($provider, $app['session.store']);
         });
     }
 
@@ -76,7 +73,6 @@ class TitanWallServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../database/seeds/' => base_path('database/seeds')
         ], 'seeds');
-        
     }
 	
     /**
@@ -91,7 +87,6 @@ class TitanWallServiceProvider extends ServiceProvider
 		);
 		
 		$this->registerTitanwall();
-		
     }
 
     public function provides()
@@ -109,7 +104,6 @@ class TitanWallServiceProvider extends ServiceProvider
         $this->app->singleton('titanwall', function ($app) {
             return new \Ngakost\TitanWall\TitanWall($app);
         });
-
     }
 	
 }

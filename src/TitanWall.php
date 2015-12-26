@@ -4,7 +4,7 @@
  * @todo
  *
  * @license MIT
- * @package Ngakost\TitanWall\Providers
+ * @package Ngakost\TitanWall
  */
 class TitanWall
 {
@@ -22,6 +22,10 @@ class TitanWall
 
     /**
 	 * @todo
+	 *
+	 * <code>
+	 * \TitanWall::can('');
+	 * </code>
      *
      * @param string $permission
      *

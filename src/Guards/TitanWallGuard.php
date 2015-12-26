@@ -11,6 +11,7 @@ use Ngakost\TitanWall\Helpers\TitanWallHelper;
 class TitanWallGuard extends Guard implements GuardContract
 {
     /**
+	 * Default Laravel Auth method.
      * Attempt to authenticate a user using the given credentials.
      *
      * @param  array $credentials
