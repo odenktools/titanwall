@@ -1,4 +1,4 @@
-<?php namespace Ngakost\TitanWall\Providers;
+<?php namespace Ngakost\TitanWall;
 
 /**
  * @todo
@@ -29,15 +29,14 @@ class TitanWall
      */
     public function can($permission)
     {
-        $user = $this->user();
+        //$user = $this->user();
 
-        return $user->getRandomString();
+        return 'can';
     }
 	
     /**
      * @todo
      *
-     * @return Illuminate\Auth\UserInterface|null
      */
     public function user()
     {
