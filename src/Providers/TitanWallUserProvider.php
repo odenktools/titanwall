@@ -7,7 +7,6 @@ use Illuminate\Contracts\Auth\Authenticatable as UserContract;
 
 /**
  * @todo
- *
  * @license MIT
  */
 class TitanWallUserProvider extends EloquentUserProvider implements UserProvider
@@ -45,8 +44,7 @@ class TitanWallUserProvider extends EloquentUserProvider implements UserProvider
      */
     protected function appendQueryConditions($query, $conditions, $exclude = ['password'])
     {
-        foreach ($conditions as $key => $value)
-		{
+        foreach ($conditions as $key => $value) {
             if (!in_array($key, $exclude)) {
                 $query->where($key, $value);
             }
@@ -89,11 +87,16 @@ class TitanWallUserProvider extends EloquentUserProvider implements UserProvider
 
         return $data;
     }
-
+	
     public function hasRole(UserContract $user)
     {
+        //$query = $this->createModel()->newQuery();
+
         $model = $this->createModel();
         $id = $model->getKeyName();
+
+        //$data = $model->getRoleById($user->id_user);
+
         $data = $model->find($user->{$id})->roles->first();
 
         if ($data === NULL) return false;

@@ -34,4 +34,9 @@ trait RoleTrait
     {
         parent::boot();
     }
+	
+	public function hasRole($userid)
+	{
+		$this->users()->where('active', 1)->get();
+	}
 }

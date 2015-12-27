@@ -4,7 +4,7 @@
  * @todo
  *
  * @license MIT
- * @package Ngakost\TitanWall
+ * @package Ngakost\TitanWall\Providers
  */
 class TitanWall
 {
@@ -22,10 +22,6 @@ class TitanWall
 
     /**
 	 * @todo
-	 *
-	 * <code>
-	 * \TitanWall::can('');
-	 * </code>
      *
      * @param string $permission
      *
@@ -46,5 +42,32 @@ class TitanWall
     {
         return $this->app->auth->user();
     }
-
+	
+	/**
+	 * Create a new instance of the User model.
+	 *
+	 * <code>
+	 * \TitanWall::getUser()->getRandomString(11);
+	 * </code>
+	 *
+	 * @return \Ngakost\TitanWall\Models\User
+	 */
+	public function getUser()
+	{
+		$model = $this->createUserModel(\Config::get('auth.model'));
+		
+		return $model;
+	}
+	
+	/**
+     * Create a new instance of the User model.
+     *
+     * @param  string  $class
+     * @return \Ngakost\TitanWall\Models\User
+     */
+    protected function createUserModel($class)
+    {
+        $model = new $class;
+        return $model;
+    }
 }

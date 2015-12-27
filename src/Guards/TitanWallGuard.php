@@ -11,7 +11,6 @@ use Ngakost\TitanWall\Helpers\TitanWallHelper;
 class TitanWallGuard extends Guard implements GuardContract
 {
     /**
-	 * Default Laravel Auth method.
      * Attempt to authenticate a user using the given credentials.
      *
      * @param  array $credentials
@@ -54,35 +53,42 @@ class TitanWallGuard extends Guard implements GuardContract
 
         $this->lastAttempted = $user = $this->provider->retrieveByCredentials($credentials);
 
-        if (!$this->hasValidCredentials($user, $credentials)) {
+        if (!$this->hasValidCredentials($user, $credentials))
+		{
 
             return TitanWallHelper::INVALID_CREDENTIALS;
-
+			
         } else {
 
-            if (!$this->provider->isVerified($user)) {
+            if (!$this->provider->isVerified($user))
+			{
                 return TitanWallHelper::UNVERIFIED;
             }
 
-            if (!$this->provider->isActivated($user)) {
+            if (!$this->provider->isActivated($user))
+			{
                 return TitanWallHelper::DISABLED;
             }
 
             //cek jika user telah mempunyai role
-            if ($this->provider->hasRole($user)) {
+            if ($this->provider->hasRole($user))
+			{
 
                 $isPurchase = $this->provider->isPurchaseable($user);
 
-                if ($isPurchase) {
+                if ($isPurchase)
+				{
 
-                    if ($user->expire_date === NULL) {
+                    if ($user->expire_date === NULL)
+					{
 
                         $calc = $user->calculateDays($user->getAuthIdentifier());
                         $user->expire_date = $calc;
                         $user->save();
                     }
 
-                    if ($user->isExpired($user->getAuthIdentifier())) {
+                    if ($user->isExpired($user->getAuthIdentifier()))
+					{
                         return TitanWallHelper::EXPIRED;
                     } else {
                         return TitanWallHelper::SUCCESS;
