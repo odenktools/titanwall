@@ -44,5 +44,32 @@ class UserFields extends TitanWallModel
     {
         parent::__construct($attributes);
     }
-
+	
+	/**
+	 * <code>
+	 * $fieldtype = \Ngakost\TitanWall\Models\UserFields::find(1)->fieldtype;
+	 * echo json_encode($fieldtype);
+	 * echo $fieldtype->field_name;
+	 * </code>
+	 *
+     * Get the fieldtype record associated with the userFields.
+     */
+    public function fieldtype()
+    {
+        return $this->hasOne('\Ngakost\TitanWall\Models\FieldType', 'id_field_type', 'field_type_id');
+    }
+	
+	/**
+	 * <code>
+	 * $groupfields = \Ngakost\TitanWall\Models\UserFields::find(1)->groupfields;
+	 * echo json_encode($groupfields);
+	 * echo $groupfields->group_name;
+	 * </code>
+	 *
+     * Get the groupfields record associated with the userFields.
+     */
+    public function groupfields()
+    {
+        return $this->hasOne('\Ngakost\TitanWall\Models\UserGroupFields', 'id_group_field', 'group_field_id');
+    }
 }

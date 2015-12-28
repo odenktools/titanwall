@@ -1,7 +1,7 @@
 <?php namespace Ngakost\TitanWall\Models;
 
 /**
- * @todo
+ * Insert Value (Registration or etc) From Dynamic Fields
  *
  * @license MIT
  */
@@ -34,4 +34,33 @@ class UserProfileFields extends TitanWallModel
         parent::__construct($attributes);
     }
 
+    /**
+     * @todo
+     *
+     * <code>
+     * $roles = \Odenktools\Coolcms\Models\UserProfileFields::find(1)->users;
+     * echo json_encode($roles);
+     * </code>
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users()
+    {
+        return $this->hasOne('\Ngakost\TitanWall\Models\User', 'id_user', 'user_id');
+    }
+	
+    /**
+     * @todo
+     *
+     * <code>
+     * $roles = \Odenktools\Coolcms\Models\UserProfileFields::find(1)->userfields;
+     * echo json_encode($roles);
+     * </code>
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function userfields()
+    {
+        return $this->hasOne('\Ngakost\TitanWall\Models\UserFields', 'id_user_field', 'userfield_id');
+    }	
 }
